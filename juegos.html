@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>juegos</title>
+  <link rel="stylesheet" href="colors.css" />
+  <style>
+    body{
+      height: 100vh;
+      margin:0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #000;
+      font-family: system-ui, sans-serif;
+    }
+
+    .container{
+      perspective: 800px;
+      width: 500px;
+      height: 250px;
+      position: relative;
+      transform-style: preserve-3d;
+    }
+
+    .tarjeta{
+      width: 100px;
+      height: 140px;
+      background-color: #442222;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      border-radius: 12px;
+      text-align: center;
+      cursor: pointer;
+      animation: Carrusel  6s linear infinite;
+      transform-origin: center center;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.6);
+      transition: box-shadow .2s ease;
+    }
+
+    /* pausa TODO el carrusel cuando el contenedor tiene la clase paused */
+    .container.paused .tarjeta {
+      animation-play-state: paused !important;
+    }
+
+    @keyframes Carrusel {
+      from {
+        transform: rotateY(0deg) translateZ(120px) rotateX(0deg);
+        opacity: 1;
+        z-index: 10;
+      }
+      50% {
+        transform: rotateY(180deg) translateZ(80px) rotateX(0deg);
+        opacity: 0.6;
+        z-index: 1;
+      }
+      to {
+        transform: rotateY(360deg) translateZ(120px) rotateX(0deg);
+        opacity: 1;
+        z-index: 10;
+      }
+    }
+
+    /* Imágenes de fondo y delays */
+    #all_for_one{
+      background-image: url('overcooked2.webp');
+      background-size: cover;
+      animation-delay: 0s;
+    }
+    #all_for_one:hover{
+      box-shadow: 0 0 15px 3px darkred;
+    }
+
+    #shigaraki{
+      background-image: url("pokemon purpura.jpg");
+      background-size: cover;
+      animation-delay: -1s;
+    }
+    #shigaraki:hover{
+      box-shadow: 0 0 15px 3px rgb(225, 0, 255);
+    }
+
+    #all_might{
+      background-image: url('Cuphead.png');
+      background-size: cover;
+      animation-delay: -2s;
+    }
+    #all_might:hover{
+      box-shadow: 0 0 15px 3px rgb(0, 102, 255);
+    }
+
+    #lemillion{
+      background-image: url('silksong.jpg');
+      background-size: cover;
+      animation-delay: -3s;
+    }
+    #lemillion:hover{
+      box-shadow: 0 0 15px 3px rgba(0,0,0,0.7);
+    }
+
+    #Red_Riot{
+      background-image: url('pokemon escarlata.jpg');
+      background-size: cover;
+      animation-delay: -4s;
+    }
+    #Red_Riot:hover{
+      box-shadow: 0 0 15px 3px red;
+    }
+
+    #todoroki{
+      background-image: url('uma musume.webp');
+      background-size: cover;
+      animation-delay: -5s;
+    }
+    #todoroki:hover{
+      box-shadow: 0 0 15px 3px green;
+    }
+
+    #deku{
+      background-image: url('soiese.jpg');
+      background-size: cover;
+      animation-delay: -6s;
+    }
+    #deku:hover{
+      box-shadow: 0 0 15px 3px rgb(0, 255, 128);
+    }
+
+    #bakugo{
+      background-image: url('"miaugordito.jpg"'); /* reemplaza con la ruta real si es diferente */
+      background-size: cover;
+      animation-delay: -7s;
+    }
+    #bakugo:hover{
+      box-shadow: 0 0 15px 3px red;
+    }
+
+    .tarjeta h3{
+      color: white;
+      font-size: 10px;
+      font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+      margin: 0;
+      padding: 6px;
+      background-color: #1B0B5C;
+      width: 100%;
+      box-sizing: border-box;
+      border-top: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .tarjeta a{
+      color: inherit;
+      text-decoration: none;
+      display: block;
+      width: 100%;
+      height: 100%;
+    }
+  </style>
+</head>
+<body text="#FFFFFF">
+	<h1 align="center"><a href="index.html">PROXIMOS LANZAMIENTOS!!</a></h1>
+  <div class="container">
+    <div class="tarjeta" id="bakugo" data-url="https://www.example.com/bakugo">
+      <h3>juego</h3>
+    </div>
+    <div class="tarjeta" id="deku" data-url="https://www.example.com/deku">
+      <h3>juego</h3>
+    </div>
+    <div class="tarjeta" id="todoroki" data-url="https://youtu.be/uCaWqXP54Mc?si=626kuRcEPfpBZTCh">
+      <h3>Uma Musume</h3>
+    </div>
+    <div class="tarjeta" id="Red_Riot" data-url="https://youtu.be/wSjreMPrHeg?si=QydYAb_J8e4giCme">
+      <h3>Pokemon Escarlata</h3>
+    </div>
+    <div class="tarjeta" id="lemillion" data-url="https://youtu.be/yQxwbZsL14Y?si=V9QRThYqUOKVdAd5">
+      <h3>Silksong</h3>
+    </div>
+    <div class="tarjeta" id="all_might" data-url="https://youtu.be/sBMOXHrXJtI?si=t-lD2MAyMT2B-XKg">
+      <h3>CupHead</h3>
+    </div>
+    <div class="tarjeta" id="shigaraki" data-url="https://youtu.be/wSjreMPrHeg?si=QydYAb_J8e4giCme">
+      <h3>Pokemon Purpura</h3>
+    </div>
+    <div class="tarjeta" id="all_for_one" data-url="https://youtu.be/lcVISRmANIo?si=GiUBPO8yIB6lu1Se">
+      <h3>Overcooked 2</h3>
+    </div>
+  </div>
+
+  <script>
+    const container = document.querySelector('.container');
+    let hoverCount = 0;
+
+    document.querySelectorAll('.tarjeta').forEach(card => {
+      card.addEventListener('mouseenter', () => {
+        hoverCount++;
+        container.classList.add('paused');
+      });
+      card.addEventListener('mouseleave', () => {
+        hoverCount = Math.max(0, hoverCount - 1);
+        if (hoverCount === 0) {
+          container.classList.remove('paused');
+        }
+      });
+      card.addEventListener('click', (e) => {
+        // evita que si hubiera un enlace interno se propague raro
+        e.stopPropagation();
+        const url = card.dataset.url;
+        if (url) window.open(url, '_blank');
+      });
+    });
+  </script>
+</body>
+</html>
